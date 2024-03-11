@@ -5,25 +5,25 @@
 <title>Estudando os Odus Mejis</title>
 <style>
 body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 20px;
-text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
 }
 select, button {
-margin: 10px;
-padding: 10px;
+  margin: 10px;
+  padding: 10px;
 }
 #botoesContainer {
-margin-top: 20px;
+  margin-top: 20px;
 }
 </style>
 </head>
 <body>
 <h1>Estudando os Odus Mejis</h1>
 <div>
-<select id="odusEsquerda"></select>
-<select id="odusDireita"></select>
+  <select id="odusEsquerda"></select>
+  <select id="odusDireita"></select>
 </div>
 <button id="buscar">Buscar</button>
 <div id="botoesContainer"></div>
@@ -31,54 +31,54 @@ margin-top: 20px;
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-const odus = [
-'Ogbe', 'Oyeku', 'Iwori', 'Odi', 'Irosun',
-'Owonrin', 'Obara', 'Okanran', 'Ogunda', 'Osa',
-'Ika', 'Oturuupon', 'Otura', 'Irete', 'Ose', 'Ofun'
-];
+  const odus = [
+    'Ogbe', 'Oyeku', 'Iwori', 'Odi', 'Irosun',
+    'Owonrin', 'Obara', 'Okanran', 'Ogunda', 'Osa',
+    'Ika', 'Oturuupon', 'Otura', 'Irete', 'Ose', 'Ofun'
+  ];
 
-const odusEsquerda = document.getElementById('odusEsquerda');
-const odusDireita = document.getElementById('odusDireita');
-const botoesContainer = document.getElementById('botoesContainer');
-const conteudoContainer = document.getElementById('conteudoContainer');
+  const odusEsquerda = document.getElementById('odusEsquerda');
+  const odusDireita = document.getElementById('odusDireita');
+  const botoesContainer = document.getElementById('botoesContainer');
+  const conteudoContainer = document.getElementById('conteudoContainer');
 
-// Preencher os selects com os Odús
-odus.forEach(odu => {
-odusEsquerda.appendChild(new Option(odu, odu));
-odusDireita.appendChild(new Option(odu, odu));
-});
+  // Preencher os selects com os Odús
+  odus.forEach(odu => {
+    odusEsquerda.appendChild(new Option(odu, odu));
+    odusDireita.appendChild(new Option(odu, odu));
+  });
 
-document.getElementById('buscar').addEventListener('click', function () {
-const oduEsquerda = odusEsquerda.value;
-const oduDireita = odusDireita.value;
-const oduSelecionado = (oduEsquerda === oduDireita)
-? `${oduDireita} Meji`
-: `${oduDireita} ${oduEsquerda}`;
+  document.getElementById('buscar').addEventListener('click', function () {
+    const oduEsquerda = odusEsquerda.value;
+    const oduDireita = odusDireita.value;
+    const oduSelecionado = (oduEsquerda === oduDireita)
+      ? `${oduDireita} Meji`
+      : `${oduDireita} ${oduEsquerda}`;
 
-// Construir o nome da página
-const pagina = `${oduDireita.toLowerCase()}-${oduEsquerda.toLowerCase()}`;
+    // Construir o nome da página
+    const pagina = `${oduDireita.toLowerCase()}-${oduEsquerda.toLowerCase()}`;
 
-conteudoContainer.innerHTML = ''; // Limpa o conteúdo anterior
-botoesContainer.innerHTML = ''; // Limpa os botões anteriores
+    conteudoContainer.innerHTML = ''; // Limpa o conteúdo anterior
+    botoesContainer.innerHTML = ''; // Limpa os botões anteriores
 
-const frase = `Vamos estudar um pouco sobre o Odú: ${oduSelecionado}`;
+    const frase = `Vamos estudar um pouco sobre o Odú: ${oduSelecionado}`;
+    const fraseElement = document.createElement('p');
+    fraseElement.textContent = frase;
+    conteudoContainer.appendChild(fraseElement);
 
-const fraseElement = document.createElement('p');
-fraseElement.textContent = frase;
-conteudoContainer.appendChild(fraseElement);
+    const tiposConteudo = ['Versos', 'Ebós', 'Magias', 'Medicina', 'Sobre o Odú'];
 
-const tiposConteudo = ['Versos', 'Ebós', 'Magias', 'Medicina', 'Sobre o Odú'];
-
-tiposConteudo.forEach(tipo => {
-const btn = document.createElement('button');
-btn.textContent = tipo;
-btn.addEventListener('click', function () {
-// Carregar a página
-   window.location.href = `./${tipo.toLowerCase()}/${pagina}.html`;
-});
-botoesContainer.appendChild(btn);
-});
-});
+    tiposConteudo.forEach(tipo => {
+      const btn = document.createElement('button');
+      btn.textContent = tipo;
+      btn.addEventListener('click', function () {
+        // Carregar a página
+        const tipoSemEspaco = tipo.toLowerCase().replace(/\s+/g, '-'); // substitui espaços por hifens
+        window.location.href = `./${tipoSemEspaco}/${pagina}.html`;
+      });
+      botoesContainer.appendChild(btn);
+    });
+  });
 });
 </script>
 </body>
