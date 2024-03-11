@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+select, button {
+    margin: 10px;
+    padding: 10px;
+}
+
+#botoesContainer {
+    margin-top: 20px;
+}
