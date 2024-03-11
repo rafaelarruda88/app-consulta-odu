@@ -8,8 +8,37 @@ body {
 select, button {
     margin: 10px;
     padding: 10px;
+    font-size: 1em; /* Ajuste o tamanho da fonte para os elementos de entrada e botões */
 }
 
 #botoesContainer {
     margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Menos preenchimento para telas menores */
+    }
+
+    select, button {
+        margin: 5px; /* Margens menores para telas menores */
+        padding: 8px; /* Preenchimento menor para que se encaixem melhor na tela */
+        font-size: 0.9em; /* Diminuir um pouco o tamanho da fonte */
+    }
+
+    #botoesContainer {
+        display: flex;
+        flex-direction: column; /* Os botões se alinharão verticalmente em telas pequenas */
+        align-items: center;
+    }
+
+    button {
+        width: 100%; /* Os botões preenchem toda a largura disponível */
+        box-sizing: border-box; /* Isso assegura que a largura inclua o preenchimento e as margens */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* Ajustes para tablets e telas de tamanho médio, se necessário */
 }
