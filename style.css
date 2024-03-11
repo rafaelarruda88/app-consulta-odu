@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 10px; /* Reduzido para espaços pequenos */
     text-align: center;
 }
 
 select, button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 1em; /* Ajuste o tamanho da fonte para os elementos de entrada e botões */
+    margin: 5px; /* Reduzido para espaços pequenos */
+    padding: 15px; /* Aumentado para melhor toque */
+    font-size: 1.2em; /* Aumento da fonte para melhor leitura */
 }
 
 #botoesContainer {
@@ -18,27 +18,26 @@ select, button {
 /* Media Queries */
 @media (max-width: 600px) {
     body {
-        padding: 10px; /* Menos preenchimento para telas menores */
+        font-size: 1em; /* Tamanho da fonte aumentado para dispositivos móveis */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Tamanho do título aumentado para melhor visibilidade */
     }
 
     select, button {
-        margin: 5px; /* Margens menores para telas menores */
-        padding: 8px; /* Preenchimento menor para que se encaixem melhor na tela */
-        font-size: 0.9em; /* Diminuir um pouco o tamanho da fonte */
+        width: 100%; /* Aproveitar toda a largura disponível */
+        margin: 10px 0; /* Ajuste da margem para elementos em bloco */
+        padding: 20px; /* Aumento do preenchimento para uma melhor área de toque */
+        font-size: 1.5em; /* Aumento da fonte dos botões e selects */
     }
 
     #botoesContainer {
-        display: flex;
-        flex-direction: column; /* Os botões se alinharão verticalmente em telas pequenas */
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch; /* Alinhamento esticado para aproveitar a largura total */
     }
 
     button {
-        width: 100%; /* Os botões preenchem toda a largura disponível */
-        box-sizing: border-box; /* Isso assegura que a largura inclua o preenchimento e as margens */
+        margin-bottom: 10px; /* Adicionando margem inferior para separar os botões */
     }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    /* Ajustes para tablets e telas de tamanho médio, se necessário */
 }
