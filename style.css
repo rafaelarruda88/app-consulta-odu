@@ -1,43 +1,48 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 10px; /* Reduzido para espaços pequenos */
+    padding: 5%; /* Proporcional à largura da tela */
     text-align: center;
+    background: #f7f7f7; /* Cor de fundo suave para reduzir o contraste */
+}
+
+h1 {
+    font-size: 6vw; /* Aumento do tamanho do título baseado na largura da tela */
 }
 
 select, button {
-    margin: 5px; /* Reduzido para espaços pequenos */
-    padding: 15px; /* Aumentado para melhor toque */
-    font-size: 1.2em; /* Aumento da fonte para melhor leitura */
+    margin: 3vw; /* Espaçamento proporcional baseado na largura da tela */
+    padding: 5vw; /* Espaçamento interno proporcional */
+    font-size: 5vw; /* Tamanho da fonte baseado na largura da tela */
+    width: 80%; /* Largura relativa à tela para preencher mais espaço */
+    display: block; /* Forçar novo bloco de linha */
+    margin-left: auto; /* Centralizar elementos */
+    margin-right: auto; /* Centralizar elementos */
 }
 
 #botoesContainer {
-    margin-top: 20px;
+    margin-top: 5vh; /* Uso de unidades relativas ao tamanho da tela */
 }
 
 /* Media Queries */
 @media (max-width: 600px) {
     body {
-        font-size: 1em; /* Tamanho da fonte aumentado para dispositivos móveis */
-    }
-
-    h1 {
-        font-size: 1.5em; /* Tamanho do título aumentado para melhor visibilidade */
+        padding: 10px; /* Preenchimento fixo para telas muito pequenas */
     }
 
     select, button {
-        width: 100%; /* Aproveitar toda a largura disponível */
-        margin: 10px 0; /* Ajuste da margem para elementos em bloco */
-        padding: 20px; /* Aumento do preenchimento para uma melhor área de toque */
-        font-size: 1.5em; /* Aumento da fonte dos botões e selects */
+        margin: 10px auto; /* Margem automática para centralização */
+        padding: 15px; /* Preenchimento maior para toque fácil */
+        font-size: 18px; /* Tamanho fixo da fonte para legibilidade */
+        width: auto; /* Largura automática para ajuste de conteúdo */
     }
 
-    #botoesContainer {
-        flex-direction: column;
-        align-items: stretch; /* Alinhamento esticado para aproveitar a largura total */
+    h1 {
+        font-size: 24px; /* Tamanho fixo da fonte para legibilidade */
     }
 
-    button {
-        margin-bottom: 10px; /* Adicionando margem inferior para separar os botões */
+    #botoesContainer button {
+        width: 100%; /* Botões preenchem a largura total */
+        margin-bottom: 10px; /* Espaçamento entre botões */
     }
 }
