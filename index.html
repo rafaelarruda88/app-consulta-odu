@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta Tag Viewport Adicionada -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estudando os Odus Mejis</title>
   <style>
     body {
@@ -14,21 +14,87 @@
     select, button {
       margin: 10px;
       padding: 10px;
-      font-size: 16px; /* Adicionado tamanho de fonte para melhor legibilidade */
+      font-size: 16px;
     }
     #botoesContainer {
       margin-top: 20px;
     }
     
-    /* Estilos para dispositivos móveis */
     @media (max-width: 600px) {
-      select, button {
-        margin: 5px;
-        padding: 12px;
-        font-size: 18px; /* Tamanho maior de fonte para dispositivos móveis */
+      body {
+        padding: 10px;
       }
-      #botoesContainer button {
-        width: 100%; /* Ajuste para usar toda a largura disponível */
+      h1 {
+        font-size: 24px;
+      }
+      select, button {
+        margin: 10px 0;
+        padding: 12px;
+        font-size: 18px;
+        width: 100%;
+      }
+      #botoesContainer {
+        margin-top: 10px;
       }
     }
   </style>
+</head>
+<body>
+  <h1>Estudando os Odus Mejis</h1>
+  <div>
+    <select id="odusEsquerda"></select>
+    <select id="odusDireita"></select>
+  </div>
+  <button id="buscar">Buscar</button>
+  <div id="botoesContainer"></div>
+  <div id="conteudoContainer"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const odus = [
+        'Ogbe', 'Oyeku', 'Iwori', 'Odi', 'Irosun',
+        'Owonrin', 'Obara', 'Okanran', 'Ogunda', 'Osa',
+        'Ika', 'Oturuupon', 'Otura', 'Irete', 'Ose', 'Ofun'
+      ];
+
+      const odusEsquerda = document.getElementById('odusEsquerda');
+      const odusDireita = document.getElementById('odusDireita');
+      const botoesContainer = document.getElementById('botoesContainer');
+      const conteudoContainer = document.getElementById('conteudoContainer');
+
+      odus.forEach(odu => {
+        odusEsquerda.appendChild(new Option(odu, odu));
+        odusDireita.appendChild(new Option(odu, odu));
+      });
+
+      document.getElementById('buscar').addEventListener('click', function () {
+        const oduEsquerda = odusEsquerda.value;
+        const oduDireita = odusDireita.value;
+        const oduSelecionado = oduEsquerda === oduDireita
+          ? `${oduDireita} Meji`
+          : `${oduDireita} ${oduEsquerda}`;
+        
+        const pagina = `${oduDireita.toLowerCase()}-${oduEsquerda.toLowerCase()}`;
+        conteudoContainer.innerHTML = '';
+        botoesContainer.innerHTML = '';
+        
+        const frase = `Vamos estudar um pouco sobre o Odú: ${oduSelecionado}`;
+        const fraseElement = document.createElement('p');
+        fraseElement.textContent = frase;
+        conteudoContainer.appendChild(fraseElement);
+
+        const tiposConteudo = ['Versos', 'Ebos', 'Magias', 'Medicina', 'Sobre o Odu'];
+        tiposConteudo.forEach(tipo => {
+          const btn = document.createElement('button');
+          btn.textContent = tipo;
+          btn.addEventListener('click', function () {
+            const tipoSemEspaco = tipo.toLowerCase().replace(/\s+/g, '-');
+            window.location.href = `./${tipoSemEspaco}/${pagina}.html`;
+          });
+          botoesContainer.appendChild(btn);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
