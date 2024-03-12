@@ -10,11 +10,17 @@
       margin: 0;
       padding: 20px;
       text-align: center;
-      background-color: #f7f7f7; /* Adicionado cor de fundo */
+      background-color: #f7f7f7;
     }
     .selectors-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .odu-label {
+      flex-basis: 100%;
+      text-align: center;
+      margin: 10px;
     }
     select, button {
       margin: 10px;
@@ -24,22 +30,14 @@
     #botoesContainer {
       margin-top: 20px;
     }
-
-    /* Se as telas forem menores que 600px, os seletores se empilharão */
-    @media (max-width: 600px) {
-      .selectors-container {
-        flex-direction: column;
-      }
-      select, button {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
   <h1>Estudando os Odus Mejis</h1>
   <div class="selectors-container">
+    <div class="odu-label">Odú Esquerda</div>
     <select id="odusEsquerda"></select>
+    <div class="odu-label">Odú Direita</div>
     <select id="odusDireita"></select>
   </div>
   <button id="buscar">Buscar</button>
