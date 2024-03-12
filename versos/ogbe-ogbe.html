@@ -22,12 +22,37 @@
       width: 100%;
       border: none;
     }
+    .pdf-navigation {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .pdf-navigation button {
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Exibindo um arquivo PDF</h1>
   </header>
-  <iframe src="https://rafaelarruda88.github.io/app-consulta-odu/versos/ogbe-ogbe.pdf"></iframe>
+  <div class="pdf-navigation">
+    <button onclick="navigatePDF(-1)">Página Anterior</button>
+    <button onclick="navigatePDF(1)">Próxima Página</button>
+  </div>
+  <iframe id="pdfViewer" src="https://rafaelarruda88.github.io/app-consulta-odu/versos/ogbe-ogbe.pdf#page=1" type="application/pdf"></iframe>
+
+  <script>
+    function navigatePDF(direction) {
+      var iframe = document.getElementById('pdfViewer');
+      var currentPage = iframe.src.match(/#page=(\d+)/) ? Number(iframe.src.match(/#page=(\d+)/)[1]) : 1;
+      var newPage = currentPage + direction;
+      // Verifique se o número da nova página é válido
+      if(newPage > 0) {
+        iframe.src = iframe.src.replace(/#page=\d+/, '') + '#page=' + newPage;
+      }
+    }
+  </script>
 </body>
 </html>
