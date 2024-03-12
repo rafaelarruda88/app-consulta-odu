@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exibindo um PDF</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  iframe {
-    width: 100%;
-    height: 90vh; /* 90% da altura da tela */
-    border: none; /* Remover a borda do iframe */
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exibindo um arquivo PDF</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      text-align: center;
+      padding: 10px;
+      background: #f7f7f7;
+    }
+    iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-<h1>Exibindo um arquivo PDF</h1>
-<iframe src="https://rafaelarruda88.github.io/app-consulta-odu/versos/ogbe-ogbe.pdf"></iframe>
+  <header>
+    <h1>Exibindo um arquivo PDF</h1>
+  </header>
+  <iframe src="https://rafaelarruda88.github.io/app-consulta-odu/versos/ogbe-ogbe.pdf"></iframe>
 </body>
 </html>
